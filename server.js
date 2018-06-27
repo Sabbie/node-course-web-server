@@ -4,6 +4,9 @@ const fs = require('fs');
 
 var app = express();
 
+const port = process.env.PORT || 3000;  // process.env is an object that stores all your environment variables of your OS
+                                        // PORT is a env var that will be created by heroku
+
 // Register partials
 hbs.registerPartials(__dirname + '/views/partials')
 
@@ -58,6 +61,6 @@ app.get('/about', (req, res) => {
     });
 });
 
-app.listen(3000, () => {
-    console.log('server is listening on port 3000');
+app.listen(port, () => {
+    console.log(`server is listening on port ${port}`);
 });
